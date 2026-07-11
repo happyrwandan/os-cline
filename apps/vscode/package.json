@@ -494,7 +494,7 @@
 		"typescript": "^5.4.5"
 	},
 	"dependencies": {
-		"@anthropic-ai/sdk": "^0.37.0",
+		"@anthropic-ai/sdk": "0.93.0",
 		"@anthropic-ai/vertex-sdk": "^0.6.4",
 		"@aws-sdk/client-bedrock-runtime": "^3.922.0",
 		"@aws-sdk/credential-providers": "^3.922.0",
@@ -509,6 +509,7 @@
 		"@mistralai/mistralai": "^1.5.0",
 		"@modelcontextprotocol/sdk": "^1.25.1",
 		"@opentelemetry/api": "^1.9.0",
+		"@opentelemetry/api-logs": "^0.220.0",
 		"@opentelemetry/core": "^2.1.0",
 		"@opentelemetry/exporter-logs-otlp-grpc": "^0.56.0",
 		"@opentelemetry/exporter-logs-otlp-http": "^0.56.0",
@@ -556,8 +557,10 @@
 		"ignore": "^7.0.3",
 		"image-size": "^2.0.2",
 		"isbinaryfile": "^5.0.2",
+		"js-yaml": "^5.2.1",
 		"jschardet": "^3.1.4",
 		"json5": "^2.2.3",
+		"jwt-decode": "^4.0.0",
 		"mammoth": "^1.11.0",
 		"nanoid": "^5.1.6",
 		"nice-grpc": "^2.1.12",
