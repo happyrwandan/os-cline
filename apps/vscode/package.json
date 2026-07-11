@@ -49,6 +49,7 @@
 		"workspaceContains:evals.env"
 	],
 	"main": "./dist/extension.js",
+	"extensionKind": ["ui", "workspace"],
 	"contributes": {
 		"icons": {
 			"cline-icon": {
