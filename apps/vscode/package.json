@@ -1,7 +1,7 @@
 {
-	"name": "cline-modified",
-	"displayName": "Cline Modified",
-	"description": "Enhanced Cline with Universal Tool Parser, Model Capabilities, YAML Config, and Multi-Model Support via OpenRouter.",
+	"name": "os-cline",
+	"displayName": "OS-Cline",
+	"description": "OS-Cline: Enhanced autonomous coding agent with Universal Tool Parser, Model Capabilities, YAML Config, and Multi-Model Support via OpenRouter.",
 	"version": "3.87.1",
 	"icon": "assets/icons/icon.png",
 	"workspaces": [
@@ -14,12 +14,12 @@
 		"name": "Cline Bot Inc."
 	},
 	"license": "Apache-2.0",
-	"publisher": "saoudrizwan",
+	"publisher": "happyrwandan",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/cline/cline"
+		"url": "https://github.com/happyrwandan/os-cline"
 	},
-	"homepage": "https://cline.bot",
+	"homepage": "https://github.com/happyrwandan/os-cline",
 	"categories": [
 		"AI",
 		"Chat",
