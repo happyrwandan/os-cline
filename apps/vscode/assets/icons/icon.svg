@@ -1,8 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-  <circle cx="64" cy="64" r="60" fill="#1a1a2e"/>
-  <circle cx="64" cy="64" r="56" stroke="#4fc3f7" stroke-width="2" fill="none"/>
-  <text x="64" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="#4fc3f7">OS</text>
-  <text x="64" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#e0e0e0">Cline</text>
-  <circle cx="28" cy="64" r="3" fill="#4fc3f7" opacity="0.6"/>
-  <circle cx="100" cy="64" r="3" fill="#4fc3f7" opacity="0.6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#4fc3f7">
+  <circle cx="8" cy="8" r="7" fill="#1a1a2e" stroke="#4fc3f7" stroke-width="1"/>
+  <circle cx="5.5" cy="7" r="1.5"/>
+  <circle cx="10.5" cy="7" r="1.5"/>
+  <path d="M 5 11 Q 8 13 11 11" stroke="#4fc3f7" stroke-width="1" fill="none" stroke-linecap="round"/>
 </svg>
