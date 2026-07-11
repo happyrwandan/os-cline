@@ -189,7 +189,7 @@ async function performCommitMsgGeneration(
 	try {
 		vscode.commands.executeCommand(
 			"setContext",
-			"cline.isGeneratingCommit",
+			"os-cline.isGeneratingCommit",
 			true,
 		);
 
@@ -254,7 +254,7 @@ async function performCommitMsgGeneration(
 	} finally {
 		vscode.commands.executeCommand(
 			"setContext",
-			"cline.isGeneratingCommit",
+			"os-cline.isGeneratingCommit",
 			false,
 		);
 	}
@@ -264,7 +264,7 @@ export function abortCommitGeneration() {
 	commitGenerationAbortController?.abort();
 	vscode.commands.executeCommand(
 		"setContext",
-		"cline.isGeneratingCommit",
+		"os-cline.isGeneratingCommit",
 		false,
 	);
 }

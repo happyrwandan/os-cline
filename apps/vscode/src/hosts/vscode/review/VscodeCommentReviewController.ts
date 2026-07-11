@@ -38,7 +38,7 @@ export class VscodeCommentReviewController
 		super();
 		// Create the comment controller
 		this.commentController = vscode.comments.createCommentController(
-			"cline-ai-review",
+			"os-cline-ai-review",
 			"Cline AI Review",
 		);
 
@@ -63,7 +63,7 @@ export class VscodeCommentReviewController
 		// Register reply command - this is called when user clicks the Reply button
 		this.disposables.push(
 			vscode.commands.registerCommand(
-				"cline.reviewComment.reply",
+				"os-cline.reviewComment.reply",
 				async (reply: vscode.CommentReply) => {
 					await this.handleReply(reply);
 				},
@@ -73,7 +73,7 @@ export class VscodeCommentReviewController
 		// Register add to chat command - sends the conversation to Cline's main chat
 		this.disposables.push(
 			vscode.commands.registerCommand(
-				"cline.reviewComment.addToChat",
+				"os-cline.reviewComment.addToChat",
 				async (thread: vscode.CommentThread) => {
 					await this.handleAddToChat(thread);
 				},
