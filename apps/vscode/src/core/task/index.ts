@@ -1,5 +1,6 @@
 import { setTimeout as setTimeoutPromise } from "node:timers/promises"
 import { ApiHandler, ApiProviderInfo, buildApiHandler } from "@core/api"
+import { ModelCapabilityRegistry, getAdaptiveSystemPrompt } from "@core/api/capabilities"
 import { ApiStream } from "@core/api/transform/stream"
 import { AssistantMessageContent, parseAssistantMessageV2, ToolUse } from "@core/assistant-message"
 import { ContextManager } from "@core/context/context-management/ContextManager"
@@ -1986,7 +1987,8 @@ export class Task {
 			isCliEnvironment,
 			enableNativeToolCalls:
 				providerInfo.model.info.apiFormat === ApiFormat.OPENAI_RESPONSES ||
-				this.stateManager.getGlobalStateKey("nativeToolCallEnabled"),
+				this.stateManager.getGlobalStateKey("nativeToolCallEnabled") ||
+				ModelCapabilityRegistry.getInstance().supportsNativeToolCalling(providerInfo.model.id),
 			enableParallelToolCalling: this.isParallelToolCallingEnabled(),
 			terminalExecutionMode: this.terminalExecutionMode,
 		}
@@ -1999,7 +2001,12 @@ export class Task {
 
 		const { systemPrompt, tools } = await getSystemPrompt(promptContext)
 		this.useNativeToolCalls = !!tools?.length
-		await this.writePromptMetadataArtifacts({ systemPrompt, providerInfo })
+
+		// Universal Model Adaptation: enhance system prompt with model-specific instructions
+		const modelProfile = ModelCapabilityRegistry.getInstance().getProfile(providerInfo.model.id)
+		const adaptedSystemPrompt = getAdaptiveSystemPrompt(systemPrompt, modelProfile)
+
+		await this.writePromptMetadataArtifacts({ systemPrompt: adaptedSystemPrompt, providerInfo })
 
 		const contextManagementMetadata = await this.contextManager.getNewContextMessagesAndMetadata(
 			this.messageStateHandler.getApiConversationHistory(),
@@ -2018,7 +2025,7 @@ export class Task {
 		}
 
 		// Response API requires native tool calls to be enabled
-		const stream = this.api.createMessage(systemPrompt, contextManagementMetadata.truncatedConversationHistory, tools)
+		const stream = this.api.createMessage(adaptedSystemPrompt, contextManagementMetadata.truncatedConversationHistory, tools)
 
 		const iterator = stream[Symbol.asyncIterator]()
 

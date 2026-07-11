@@ -38,6 +38,7 @@ import {
 	migrateWorkspaceToGlobalStorage,
 } from "./core/storage/state-migrations"
 import { workspaceResolver } from "./core/workspace"
+import { openClineConfig } from "./core/config/cline-config"
 import { findMatchingNotebookCell, getContextForCommand, showWebview } from "./hosts/vscode/commandUtils"
 import { abortCommitGeneration, generateCommitMsg } from "./hosts/vscode/commit-message-generator"
 import { registerClineOutputChannel } from "./hosts/vscode/hostbridge/env/debugLog"
@@ -502,6 +503,13 @@ ${ctx.cellJson || "{}"}
 		vscode.commands.registerCommand(commands.Walkthrough, async () => {
 			await vscode.commands.executeCommand("workbench.action.openWalkthrough", `${context.extension.id}#ClineWalkthrough`)
 			telemetryService.captureButtonClick("command_openWalkthrough")
+		}),
+	)
+
+	// Register the Open Config command handler
+	context.subscriptions.push(
+		vscode.commands.registerCommand(commands.OpenConfig, async () => {
+			await openClineConfig()
 		}),
 	)
 

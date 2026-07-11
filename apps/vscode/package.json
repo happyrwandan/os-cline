@@ -1,8 +1,8 @@
 {
-	"name": "claude-dev",
-	"displayName": "Cline",
-	"description": "Autonomous coding agent right in your IDE, capable of creating/editing files, running commands, using the browser, and more with your permission every step of the way.",
-	"version": "3.87.0",
+	"name": "cline-modified",
+	"displayName": "Cline Modified",
+	"description": "Enhanced Cline with Universal Tool Parser, Model Capabilities, YAML Config, and Multi-Model Support via OpenRouter.",
+	"version": "3.87.1",
 	"icon": "assets/icons/icon.png",
 	"workspaces": [
 		"."
@@ -231,6 +231,11 @@
 			{
 				"command": "cline.reconstructTaskHistory",
 				"title": "Reconstruct Task History",
+				"category": "Cline"
+			},
+			{
+				"command": "cline.openConfig",
+				"title": "Open Cline Config",
 				"category": "Cline"
 			},
 			{
@@ -470,7 +475,7 @@
 		"cross-env": "^10.1.0",
 		"dotenv": "^17.2.3",
 		"esbuild": "^0.25.0",
-		"grpc-tools": "^1.13.0",
+		"grpc-tools": "^1.13.1",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.1.0",
 		"minimatch": "^3.0.3",
@@ -499,6 +504,7 @@
 		"@google-cloud/vertexai": "^1.9.3",
 		"@google/genai": "^1.30.0",
 		"@grpc/grpc-js": "^1.9.15",
+		"@grpc/proto-loader": "^0.8.1",
 		"@grpc/reflection": "^1.0.4",
 		"@mistralai/mistralai": "^1.5.0",
 		"@modelcontextprotocol/sdk": "^1.25.1",

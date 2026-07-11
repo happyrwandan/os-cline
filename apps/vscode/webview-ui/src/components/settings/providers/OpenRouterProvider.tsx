@@ -2,6 +2,7 @@ import { EmptyRequest } from "@shared/proto/cline/common"
 import { Mode } from "@shared/storage/types"
 import { VSCodeButton, VSCodeLink } from "@vscode/webview-ui-toolkit/react"
 import { useExtensionState } from "@/context/ExtensionStateContext"
+import { PLATFORM_CONFIG } from "@/config/platform.config"
 import { AccountServiceClient } from "@/services/grpc-client"
 import { useOpenRouterKeyInfo } from "../../ui/hooks/useOpenRouterKeyInfo"
 import { DebouncedTextField } from "../common/DebouncedTextField"
@@ -106,6 +107,27 @@ export const OpenRouterProvider = ({ showModelOptions, isPopup, currentMode }: O
 					<OpenRouterModelPicker currentMode={currentMode} isPopup={isPopup} showProviderRouting={true} />
 				</>
 			)}
+
+			<div style={{ marginTop: "8px" }}>
+				<VSCodeButton
+					appearance="secondary"
+					onClick={() => {
+						// Send message to extension to open the config file
+						PLATFORM_CONFIG.postMessage({ type: "openConfig" })
+					}}
+					style={{ fontSize: "12px" }}>
+					<span style={{ marginRight: "4px" }}>⚙️</span> Edit Config (config.yaml)
+				</VSCodeButton>
+				<p
+					style={{
+						fontSize: "11px",
+						marginTop: "4px",
+						color: "var(--vscode-descriptionForeground)",
+					}}>
+					Add custom models (DeepSeek, Qwen, Kimi, MiMo, etc.) by editing ~/.cline/config.yaml.
+					Models appear in the picker above after saving.
+				</p>
+			</div>
 		</div>
 	)
 }

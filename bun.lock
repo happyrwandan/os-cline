@@ -345,7 +345,7 @@
     },
     "apps/vscode": {
       "name": "claude-dev",
-      "version": "3.86.2",
+      "version": "3.87.0",
       "dependencies": {
         "@anthropic-ai/sdk": "^0.37.0",
         "@anthropic-ai/vertex-sdk": "^0.6.4",
@@ -357,6 +357,7 @@
         "@google-cloud/vertexai": "^1.9.3",
         "@google/genai": "^1.30.0",
         "@grpc/grpc-js": "^1.9.15",
+        "@grpc/proto-loader": "^0.8.1",
         "@grpc/reflection": "^1.0.4",
         "@mistralai/mistralai": "^1.5.0",
         "@modelcontextprotocol/sdk": "^1.25.1",
@@ -471,7 +472,7 @@
         "cross-env": "^10.1.0",
         "dotenv": "^17.2.3",
         "esbuild": "^0.25.0",
-        "grpc-tools": "^1.13.0",
+        "grpc-tools": "^1.13.1",
         "husky": "^9.1.7",
         "lint-staged": "^16.1.0",
         "minimatch": "^3.0.3",
